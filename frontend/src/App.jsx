@@ -5,12 +5,14 @@ import Bulk from './components/Bulk'
 import Signup from './components/Signup'
 import PrivateRoute from './components/PrivateRoute'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
+import Header from './components/Header'
 function App() {
   
 
   return (
     <>
     <BrowserRouter>
+    <Header/>
     <Routes>
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/add' element={<PrivateRoute element={AddingProducts}/>}/>
