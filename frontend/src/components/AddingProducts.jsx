@@ -15,7 +15,7 @@ function AddingProducts() {
 
     async function handleSubmit() {
         try {
-            const response = await axios.post("http://localhost:3000/api/v1/account/products", {
+            const response = await axios.post("https://internship-assignment-rouge.vercel.app/api/v1/account/products", {
                 productId,
                 name,
                 price,

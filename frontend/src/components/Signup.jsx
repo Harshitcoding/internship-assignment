@@ -10,7 +10,7 @@ function Signup() {
 
     const navigate = useNavigate()
     async function handleSubmit() {
-        const response = await axios.post("http://localhost:3000/api/v1/user/signup", {
+        const response = await axios.post("https://internship-assignment-rouge.vercel.app/api/v1/user/signup", {
             firstName,
             lastName,
             username,

@@ -7,7 +7,7 @@ const ProductList = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/v1/account/allproducts', {
+        const response = await axios.get('https://internship-assignment-rouge.vercel.app/api/v1/account/allproducts', {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
           },
