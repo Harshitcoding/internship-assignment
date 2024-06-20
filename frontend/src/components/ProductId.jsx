@@ -8,7 +8,7 @@ function ProductId() {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/v1/account/products/${productId}`, {
+    axios.get(`https://internship-assignment-rouge.vercel.app/api/v1/account/products/${productId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`
       }
