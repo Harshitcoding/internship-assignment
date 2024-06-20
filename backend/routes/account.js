@@ -1,14 +1,14 @@
 const express = require("express");
-const { Product } = require("../db"); // Assuming Product model is defined here
+const { Product } = require("../db");
 const { authMiddleware } = require('../middleware');
 const app = express();
-app.use(express.json()); // Middleware to parse JSON request bodies
+app.use(express.json());
 
-// Add a product
+
 const router = express.Router();
 
 router.post('/products', authMiddleware, async (req, res) => {
-    // Adjust property names based on your model definition
+    
     const { productId, name, price, featured, rating, createdAt, company } = req.body;
 
     try {
@@ -20,8 +20,8 @@ router.post('/products', authMiddleware, async (req, res) => {
             rating,
             createdAt,
             company
-        }); // Create product
-        res.json(newProduct); // Send newly created product in response
+        }); 
+        res.json(newProduct);
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: 'Error creating product' }); // Handle errors
@@ -92,24 +92,23 @@ router.delete('/deleteProduct/:productId', authMiddleware, async (req, res) => {
 
 router.get('/featuredproducts', authMiddleware, async (req, res) => {
     try {
-        const featuredProducts = await Product.find({ featured: true }); // Find products where featured is true
-        res.json(featuredProducts); // Send the list of featured products in the response
+        const featuredProducts = await Product.find({ featured: true }); 
+        res.json(featuredProducts); 
     } catch (error) {
         console.error(error);
-        res.status(500).json({ message: 'Error fetching featured products' }); // Handle errors
+        res.status(500).json({ message: 'Error fetching featured products' }); 
     }
 });
 
 
 router.get('/products/belowPrice', authMiddleware, async (req, res) => {
-    const { maxPrice } = req.query; // Get the maxPrice from query parameters
-  
+    const { maxPrice } = req.query; 
     if (!maxPrice) {
       return res.status(400).json({ message: 'Missing required parameter: maxPrice' });
     }
   
     try {
-      const products = await Product.find({ price: { $lt: maxPrice } }); // Find products where price is less than maxPrice
+      const products = await Product.find({ price: { $lt: maxPrice } }); 
       res.json(products);
     } catch (error) {
       console.error(error);
@@ -119,14 +118,14 @@ router.get('/products/belowPrice', authMiddleware, async (req, res) => {
 
 
   router.get('/minRating', authMiddleware, async (req, res) => {
-    const { minRating } = req.query; // Get the minRating from query parameters
+    const { minRating } = req.query; 
     try {
       let products;
       if (minRating) {
-        // Find products with rating greater than or equal to minRating
+        
         products = await Product.find({ rating: { $gte: minRating } });
       } else {
-        // Fetch all products if no minRating provided (original behavior)
+        
         products = await Product.find();
       }
       res.json(products);
