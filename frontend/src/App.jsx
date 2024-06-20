@@ -6,6 +6,7 @@ import Signup from './components/Signup'
 import PrivateRoute from './components/PrivateRoute'
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Header from './components/Header'
+import ProductId from './components/ProductId'
 function App() {
   
 
@@ -17,6 +18,7 @@ function App() {
       <Route path='/signup' element={<Signup/>}/>
       <Route path='/add' element={<PrivateRoute element={AddingProducts}/>}/>
       <Route path='/' element={<PrivateRoute element={Bulk}/>}/>
+      <Route path='/product/:productId' element = {<ProductId/>}/>
     </Routes>
     </BrowserRouter>
     </>

@@ -135,7 +135,25 @@ router.get('/products/belowPrice', authMiddleware, async (req, res) => {
       res.status(500).json({ message: 'Error fetching products' });
     }
   });
-  
+
+
+
+  router.get('/products/:productId', authMiddleware, async (req, res) => {
+    const { productId } = req.params;
+
+    try {
+        const product = await Product.findOne({ productId });
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        res.json(product);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error fetching product' });
+    }
+});
 
 
 module.exports = router;

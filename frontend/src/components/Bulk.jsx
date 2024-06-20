@@ -44,7 +44,9 @@ const ProductList = () => {
             <span className="text-sm mr-2 font-medium">Featured:</span>
             <span>{product.featured ? 'Yes' : 'No'}</span>
           </div>
+          <a href={`/product/${product.productId}`} className="text-blue-500 text-sm font-medium hover:underline">Read More</a>
         </li>
+        
       ))}
     </ul>
   </div>
