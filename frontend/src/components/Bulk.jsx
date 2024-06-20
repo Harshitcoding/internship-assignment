@@ -15,7 +15,7 @@ const ProductList = () => {
         setProducts(response.data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
-        // Handle error state or show a message to the user
+     
       }
     };
 
