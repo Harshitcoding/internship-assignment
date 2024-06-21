@@ -23,30 +23,30 @@ const ProductList = () => {
   }, []);
 
   return (
-    <div className="bg-gray-200 p-4 rounded shadow-md mx-auto max-w-2xl">
-    <h2>All Products</h2>
-    <ul className="list-none p-0">
+   <div class="bg-gray-300 p-8 rounded-lg shadow-lg mx-auto max-w-2xl">
+    <h2 class="text-2xl font-bold text-gray-800">All Products</h2>
+    <ul class="list-none p-0">
       {products.map(product => (
-        <li key={product.productId} className="flex justify-between items-center py-2 border-b border-gray-300 hover:bg-gray-100">
-          <div className="flex items-center">
-            <span className="text-sm mr-2 font-medium">Company:</span>
-            <span>{product.company ? product.company : 'N/A'}</span>  {/* Handle missing company data */}
+        <li key={product.productId} class="flex justify-between items-center py-4 hover:bg-gray-200">
+          <div class="flex items-center space-x-4">
+            <span class="text-base font-medium text-gray-700 leading-loose">Company:</span>
+            <span class="text-base text-gray-600">{product.company ? product.company : 'N/A'}</span>
           </div>
-          <div className="flex items-center">
-            <span className="text-sm mr-2 font-medium">Price:</span>
-            <span>{product.price}</span>
+          <div class="flex items-center space-x-4">
+            <span class="text-base font-medium text-gray-700 leading-loose">Name:</span>
+            <span class="text-base text-gray-600">{product.name}</span>
           </div>
-          <div className="flex items-center">
-            <span className="text-sm mr-2 font-medium">Rating:</span>
-            <span>{product.rating.$numberDecimal}</span>
+          <div class="flex items-center space-x-4 sm:flex">
+            <span class="text-base font-medium text-gray-700 leading-loose">Price:</span>
+            <span class="text-base text-gray-600">{product.price}</span>
           </div>
-          <div>
-            <span className="text-sm mr-2 font-medium">Featured:</span>
-            <span>{product.featured ? 'Yes' : 'No'}</span>
+          <div class="flex items-center space-x-4 sm:flex">
+            <span class="text-base font-medium text-gray-700 leading-loose">Rating:</span>
+            <span class="text-base text-gray-600">{product.rating.$numberDecimal}</span>
           </div>
-          <a href={`/product/${product.productId}`} className="text-blue-500 text-sm font-medium hover:underline">Read More</a>
+          <div class="mt-2">  <a href={`/product/${product.productId}`} class="text-blue-500 text-base font-medium hover:underline">Read More</a>
+          </div>
         </li>
-        
       ))}
     </ul>
   </div>
