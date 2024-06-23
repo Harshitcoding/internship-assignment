@@ -15,7 +15,7 @@ const ProductList = () => {
         setProducts(response.data.products);
       } catch (error) {
         console.error('Error fetching products:', error);
-        // Handle error state or show a message to the user
+     
       }
     };
 
@@ -23,7 +23,11 @@ const ProductList = () => {
   }, []);
 
   return (
+<<<<<<< HEAD
     <div class="bg-gray-300 p-8 rounded-lg shadow-lg mx-auto max-w-2xl">
+=======
+   <div class="bg-gray-300 p-8 rounded-lg shadow-lg mx-auto max-w-2xl">
+>>>>>>> 6e19da3039caa0d4e039b2ccb739332308be2813
     <h2 class="text-2xl font-bold text-gray-800">All Products</h2>
     <ul class="list-none p-0">
       {products.map(product => (

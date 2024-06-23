@@ -31,7 +31,7 @@ function AddingProducts() {
             console.log(response.data); 
             navigate('/')
         } catch (error) {
-            console.error(error); // Handle error (e.g., show error notification)
+            console.error(error); 
         }
     }
 
